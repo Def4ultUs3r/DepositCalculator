@@ -84,7 +84,7 @@ namespace DepositCalculator
             return Result;
         }
 
-        public decimal ResultInCurrency(decimal _result)
+        public decimal ResultInDefaultCurrency(decimal _result)
         {
             switch (Currency)
             {
@@ -101,6 +101,11 @@ namespace DepositCalculator
                     break;
             }
             return _result;
+        }
+
+        public decimal ResultInCurrency(decimal _result, decimal _rate)
+        {
+            return _result * _rate;
         }
 
 

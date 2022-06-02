@@ -179,6 +179,7 @@
             // 
             this.cbCurrency.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.cbCurrency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCurrency.DropDownWidth = 100;
             this.cbCurrency.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.cbCurrency.Items.AddRange(new object[] {
             "UAH",
