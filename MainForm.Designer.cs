@@ -40,6 +40,7 @@
             this.lbCurrency = new System.Windows.Forms.Label();
             this.cbCurrency = new System.Windows.Forms.ComboBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tbResInCurrency = new System.Windows.Forms.TextBox();
             this.tbResult = new System.Windows.Forms.TextBox();
             this.lbResult = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudRate)).BeginInit();
@@ -54,12 +55,13 @@
             // bCalc
             // 
             this.bCalc.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.bCalc.Location = new System.Drawing.Point(486, 84);
+            this.bCalc.Location = new System.Drawing.Point(486, 89);
             this.bCalc.Name = "bCalc";
             this.bCalc.Size = new System.Drawing.Size(151, 50);
             this.bCalc.TabIndex = 0;
             this.bCalc.Text = "Расчитать";
             this.bCalc.UseVisualStyleBackColor = true;
+            this.bCalc.Click += new System.EventHandler(this.bCalc_Click);
             // 
             // cbMethod
             // 
@@ -69,7 +71,7 @@
             this.cbMethod.Items.AddRange(new object[] {
             "Вклад без капитализации процентов",
             "Вклад с капитализацией процентов"});
-            this.cbMethod.Location = new System.Drawing.Point(242, 106);
+            this.cbMethod.Location = new System.Drawing.Point(242, 111);
             this.cbMethod.Name = "cbMethod";
             this.cbMethod.Size = new System.Drawing.Size(210, 28);
             this.cbMethod.TabIndex = 8;
@@ -78,7 +80,7 @@
             // 
             this.lbMethod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lbMethod.AutoSize = true;
-            this.lbMethod.Location = new System.Drawing.Point(242, 84);
+            this.lbMethod.Location = new System.Drawing.Point(242, 89);
             this.lbMethod.Name = "lbMethod";
             this.lbMethod.Size = new System.Drawing.Size(198, 20);
             this.lbMethod.TabIndex = 7;
@@ -88,7 +90,7 @@
             // 
             this.nudRate.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.nudRate.DecimalPlaces = 2;
-            this.nudRate.Location = new System.Drawing.Point(242, 40);
+            this.nudRate.Location = new System.Drawing.Point(242, 45);
             this.nudRate.Name = "nudRate";
             this.nudRate.Size = new System.Drawing.Size(210, 27);
             this.nudRate.TabIndex = 6;
@@ -98,17 +100,17 @@
             // 
             this.lbRate.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lbRate.AutoSize = true;
-            this.lbRate.Location = new System.Drawing.Point(242, 17);
+            this.lbRate.Location = new System.Drawing.Point(242, 22);
             this.lbRate.Name = "lbRate";
-            this.lbRate.Size = new System.Drawing.Size(77, 20);
+            this.lbRate.Size = new System.Drawing.Size(136, 20);
             this.lbRate.TabIndex = 5;
-            this.lbRate.Text = "Ставка(%)";
+            this.lbRate.Text = "Годовая ставка(%)";
             // 
             // lbPeriod
             // 
             this.lbPeriod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lbPeriod.AutoSize = true;
-            this.lbPeriod.Location = new System.Drawing.Point(12, 84);
+            this.lbPeriod.Location = new System.Drawing.Point(12, 89);
             this.lbPeriod.Name = "lbPeriod";
             this.lbPeriod.Size = new System.Drawing.Size(107, 20);
             this.lbPeriod.TabIndex = 4;
@@ -117,7 +119,7 @@
             // nudPeriod
             // 
             this.nudPeriod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.nudPeriod.Location = new System.Drawing.Point(12, 107);
+            this.nudPeriod.Location = new System.Drawing.Point(12, 112);
             this.nudPeriod.Maximum = new decimal(new int[] {
             1200,
             0,
@@ -142,7 +144,7 @@
             // 
             this.nudSum.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.nudSum.DecimalPlaces = 2;
-            this.nudSum.Location = new System.Drawing.Point(12, 40);
+            this.nudSum.Location = new System.Drawing.Point(12, 45);
             this.nudSum.Maximum = new decimal(new int[] {
             -1649267443,
             1271310319,
@@ -157,7 +159,7 @@
             // 
             this.lbSum.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lbSum.AutoSize = true;
-            this.lbSum.Location = new System.Drawing.Point(12, 17);
+            this.lbSum.Location = new System.Drawing.Point(12, 22);
             this.lbSum.Name = "lbSum";
             this.lbSum.Size = new System.Drawing.Size(55, 20);
             this.lbSum.TabIndex = 0;
@@ -167,7 +169,7 @@
             // 
             this.lbCurrency.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lbCurrency.AutoSize = true;
-            this.lbCurrency.Location = new System.Drawing.Point(486, 17);
+            this.lbCurrency.Location = new System.Drawing.Point(486, 22);
             this.lbCurrency.Name = "lbCurrency";
             this.lbCurrency.Size = new System.Drawing.Size(60, 20);
             this.lbCurrency.TabIndex = 9;
@@ -182,7 +184,7 @@
             "UAH",
             "USD",
             "EUR"});
-            this.cbCurrency.Location = new System.Drawing.Point(486, 40);
+            this.cbCurrency.Location = new System.Drawing.Point(486, 45);
             this.cbCurrency.Name = "cbCurrency";
             this.cbCurrency.Size = new System.Drawing.Size(151, 28);
             this.cbCurrency.TabIndex = 10;
@@ -197,7 +199,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
-            this.splitContainer1.Panel1.AutoScrollMinSize = new System.Drawing.Size(304, 150);
+            this.splitContainer1.Panel1.AutoScrollMinSize = new System.Drawing.Size(600, 150);
             this.splitContainer1.Panel1.Controls.Add(this.cbCurrency);
             this.splitContainer1.Panel1.Controls.Add(this.nudSum);
             this.splitContainer1.Panel1.Controls.Add(this.lbCurrency);
@@ -213,17 +215,28 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
-            this.splitContainer1.Panel2.AutoScrollMinSize = new System.Drawing.Size(304, 100);
+            this.splitContainer1.Panel2.AutoScrollMinSize = new System.Drawing.Size(600, 100);
+            this.splitContainer1.Panel2.Controls.Add(this.tbResInCurrency);
             this.splitContainer1.Panel2.Controls.Add(this.tbResult);
             this.splitContainer1.Panel2.Controls.Add(this.lbResult);
-            this.splitContainer1.Size = new System.Drawing.Size(671, 304);
-            this.splitContainer1.SplitterDistance = 158;
+            this.splitContainer1.Size = new System.Drawing.Size(671, 315);
+            this.splitContainer1.SplitterDistance = 163;
             this.splitContainer1.TabIndex = 2;
+            // 
+            // tbResInCurrency
+            // 
+            this.tbResInCurrency.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tbResInCurrency.Location = new System.Drawing.Point(178, 93);
+            this.tbResInCurrency.Name = "tbResInCurrency";
+            this.tbResInCurrency.ReadOnly = true;
+            this.tbResInCurrency.Size = new System.Drawing.Size(308, 27);
+            this.tbResInCurrency.TabIndex = 8;
+            this.tbResInCurrency.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tbResult
             // 
             this.tbResult.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbResult.Location = new System.Drawing.Point(177, 67);
+            this.tbResult.Location = new System.Drawing.Point(178, 60);
             this.tbResult.Name = "tbResult";
             this.tbResult.ReadOnly = true;
             this.tbResult.Size = new System.Drawing.Size(308, 27);
@@ -234,7 +247,7 @@
             // 
             this.lbResult.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbResult.AutoSize = true;
-            this.lbResult.Location = new System.Drawing.Point(258, 31);
+            this.lbResult.Location = new System.Drawing.Point(259, 24);
             this.lbResult.Name = "lbResult";
             this.lbResult.Size = new System.Drawing.Size(140, 20);
             this.lbResult.TabIndex = 6;
@@ -244,7 +257,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 304);
+            this.ClientSize = new System.Drawing.Size(671, 315);
             this.Controls.Add(this.splitContainer1);
             this.Name = "MainForm";
             this.Text = "Депозитный калькулятор";
@@ -277,5 +290,6 @@
         private SplitContainer splitContainer1;
         private TextBox tbResult;
         private Label lbResult;
+        private TextBox tbResInCurrency;
     }
 }
